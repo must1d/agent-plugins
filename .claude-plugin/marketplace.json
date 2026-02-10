@@ -3,7 +3,7 @@
     "description": "Official AWS plugins for Claude Code, Cursor, and AI coding assistants.",
     "version": "1.0.0"
   },
-  "name": "awslabs-agent-plugins",
+  "name": "must1d-awslabs-agent-plugins",
   "owner": {
     "email": "aws-agent-plugins@amazon.com",
     "name": "Amazon Web Services"
