@@ -10,6 +10,7 @@ Orchestrated workflow for AWS Amplify Gen 2 development.
 ## When to Use This Workflow
 
 Use for any Amplify Gen 2 work:
+
 - Building a new full-stack application
 - Adding features to an existing backend
 - Connecting frontend to backend
@@ -18,6 +19,7 @@ Use for any Amplify Gen 2 work:
 The workflow determines which phases apply based on your request.
 
 **DO NOT invoke when:**
+
 - User asks conceptual questions ("What is Amplify?", "How does defineData work?")
 - User asks for comparisons ("Gen 1 vs Gen 2")
 - User is troubleshooting existing issues unrelated to building
@@ -30,16 +32,19 @@ The workflow determines which phases apply based on your request.
 Run these checks before proceeding:
 
 1. **Node.js 18.x or later**
+
    ```bash
    node --version
    ```
 
 2. **npm available**
+
    ```bash
    npm --version
    ```
 
 3. **AWS credentials configured** (CRITICAL)
+
    ```bash
    AWS_PAGER="" aws sts get-caller-identity
    ```
@@ -92,15 +97,16 @@ Once all prerequisites pass, follow the workflow below.
 
 Based on the user's request and project state, determine which phases apply:
 
-| Phase | Applies when |
-|-------|--------------|
-| 1: Backend | User needs to create or modify Amplify backend resources |
-| 2: Sandbox | Backend code needs deployment for testing |
-| 3: Frontend | Frontend needs to connect to Amplify backend |
-| 4: Testing | App ready for local verification |
-| 5: Production | User wants to deploy to production |
+| Phase         | Applies when                                             |
+| ------------- | -------------------------------------------------------- |
+| 1: Backend    | User needs to create or modify Amplify backend resources |
+| 2: Sandbox    | Backend code needs deployment for testing                |
+| 3: Frontend   | Frontend needs to connect to Amplify backend             |
+| 4: Testing    | App ready for local verification                         |
+| 5: Production | User wants to deploy to production                       |
 
 Common patterns:
+
 - **New full-stack app:** 1 → 2 → 3 → 4 → 5
 - **Add feature to existing backend:** 1 → 2
 - **Redeploy after changes:** 2 only
@@ -145,6 +151,7 @@ Ready to get started? ✨
 Execute each applicable phase IN SEQUENCE.
 
 **When starting a phase, announce it as a header:**
+
 ```
 ## ⚙️ Phase 1: Backend (SOP: amplify-backend-implementation)
 [Next: Phase 2: Sandbox Deployment]
@@ -160,6 +167,7 @@ Execute each applicable phase IN SEQUENCE.
 
 ## 🌐 Phase 5: Production Deployment (SOP: amplify-deployment-guide)
 ```
+
 Omit "[Next: ...]" if it's the last phase in your plan.
 
 ---
@@ -171,6 +179,7 @@ Omit "[Next: ...]" if it's the last phase in your plan.
 Use the SOP retrieval tool to get **"amplify-backend-implementation"** and follow it completely.
 
 **After completion:**
+
 - Summarize what was created
 - **STOP and ask:** "Phase 1 complete. Ready to proceed to Phase 2: Sandbox Deployment? 🚀"
 - **WAIT for user confirmation before proceeding.**
@@ -184,6 +193,7 @@ Use the SOP retrieval tool to get **"amplify-backend-implementation"** and follo
 Use the SOP retrieval tool to get **"amplify-deployment-guide"** and follow it for SANDBOX deployment.
 
 **After completion:**
+
 - Confirm deployment succeeded and `amplify_outputs.json` exists
 - **STOP and ask:** "Phase 2 complete. Ready to proceed to Phase 3: Frontend Integration? 🎨"
 - **WAIT for user confirmation before proceeding.**
@@ -199,6 +209,7 @@ Use the SOP retrieval tool to get **"amplify-deployment-guide"** and follow it f
 Use the SOP retrieval tool to get **"amplify-frontend-integration"** and follow it completely.
 
 **After completion:**
+
 - Summarize integration work
 - **STOP and ask:** "Phase 3 complete. Ready to proceed to Phase 4: Local Testing? 🧪"
 - **WAIT for user confirmation before proceeding.**
@@ -222,6 +233,7 @@ Let me know how it goes! 🤞
 ```
 
 **After user confirms testing is successful:**
+
 - **STOP and ask:** "Phase 4 complete. Ready to proceed to Phase 5: Production Deployment? 🌐"
 - **WAIT for user confirmation before proceeding.**
 
@@ -252,6 +264,7 @@ Your app is now deployed! Future updates: just push to your repo → auto-deploy
 ## Troubleshooting
 
 If issues occur during any phase:
+
 1. Check the SOP's troubleshooting section first
 2. Use documentation tools to search AWS Amplify docs for the error message
 3. Read the relevant documentation page

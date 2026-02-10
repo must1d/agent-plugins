@@ -10,6 +10,7 @@ argument-hint: "[description of what to build]"
 ## Input Validation
 
 If `$ARGUMENTS` is empty or unclear, ask:
+
 ```
 What would you like to build? For example:
 - "A todo app with user authentication"
@@ -28,6 +29,7 @@ This command delegates to the `amplify-workflow` skill which handles:
 Follow the complete workflow defined in the skill.
 
 **Key rules:**
+
 - Gen 2 ONLY (`defineAuth`, `defineData`, `defineStorage`, `defineFunction`)
 - NO Gen 1 patterns (`amplify init`, `amplify push`)
 - Always follow SOPs completely

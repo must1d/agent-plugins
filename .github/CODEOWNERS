@@ -24,6 +24,7 @@ LICENSE                   @awslabs/agent-plugins-admins
 mise.toml                 @awslabs/agent-plugins-admins
 NOTICE                    @awslabs/agent-plugins-admins
 plugins/                  @awslabs/agent-plugins-admins
+plugins/aws-amplify/      @awslabs/amplify-ai @awslabs/agent-plugins-admins
 README.md                 @awslabs/agent-plugins-admins
 schemas/                  @awslabs/agent-plugins-admins
 tools/                    @awslabs/agent-plugins-admins

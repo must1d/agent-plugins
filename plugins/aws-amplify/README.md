@@ -47,6 +47,7 @@ claude --plugin-dir ./agent-plugins/plugins/aws-amplify
 ### Auto-Invoked Skill
 
 The `amplify-workflow` skill is automatically invoked when you mention Amplify-related topics:
+
 - "Amplify", "backend", "sandbox", "deploy"
 - Adding auth, data, storage, functions
 - Building full-stack apps
@@ -55,15 +56,16 @@ Just describe what you want naturally.
 
 ## Workflow Phases
 
-| Phase | Description | SOP |
-|-------|-------------|-----|
-| Backend | Create/modify Amplify resources | `amplify-backend-implementation` |
-| Sandbox | Deploy to sandbox for testing | `amplify-deployment-guide` |
-| Frontend | Connect frontend to backend | `amplify-frontend-integration` |
-| Testing | Local verification | Manual |
-| Production | Deploy to production | `amplify-deployment-guide` |
+| Phase      | Description                     | SOP                              |
+| ---------- | ------------------------------- | -------------------------------- |
+| Backend    | Create/modify Amplify resources | `amplify-backend-implementation` |
+| Sandbox    | Deploy to sandbox for testing   | `amplify-deployment-guide`       |
+| Frontend   | Connect frontend to backend     | `amplify-frontend-integration`   |
+| Testing    | Local verification              | Manual                           |
+| Production | Deploy to production            | `amplify-deployment-guide`       |
 
 **Common Patterns:**
+
 - New app: Backend → Sandbox → Frontend → Testing → Production
 - Add feature: Backend → Sandbox
 - Redeploy: Sandbox only
@@ -105,6 +107,7 @@ aws sts get-caller-identity
 This plugin requires the AWS MCP server for SOP retrieval. It's automatically configured via `.mcp.json`.
 
 Verify it's working:
+
 ```
 /mcp
 ```
