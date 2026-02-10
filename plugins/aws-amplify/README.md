@@ -17,32 +17,23 @@ This plugin provides a workflow orchestrator for AWS Amplify Gen 2 development. 
 
 - Node.js 18.x or later
 - AWS credentials configured (`aws configure` or `aws sso login`)
-- Claude Code 1.0.33 or later
+- Claude Code 2.1.29 or later
 - `uv` package manager for MCP server: https://docs.astral.sh/uv/getting-started/installation/
 
 ## Installation
 
-### Option 1: Load locally (recommended for testing)
+### Option 1: Marketplace (recommended)
 
 ```bash
-git clone https://github.com/hfurkanbozkurt/aws-amplify-claude-plugin
-claude --plugin-dir ./aws-amplify-claude-plugin
+/plugin marketplace add awslabs/agent-plugins
+/plugin install aws-amplify@awslabs-agent-plugins
 ```
 
-### Option 2: Copy to your project
-
-Copy the plugin directory into your project and load it:
+### Option 2: Load locally (for testing)
 
 ```bash
-claude --plugin-dir ./aws-amplify-claude-plugin
-```
-
-### Option 3: Multiple plugins
-
-You can load multiple plugins at once:
-
-```bash
-claude --plugin-dir ./aws-amplify-claude-plugin --plugin-dir ./another-plugin
+git clone https://github.com/awslabs/agent-plugins
+claude --plugin-dir ./agent-plugins/plugins/aws-amplify
 ```
 
 ## Usage
@@ -82,7 +73,7 @@ Just describe what you want naturally.
 ## Plugin Structure
 
 ```
-aws-amplify-claude-plugin/
+aws-amplify/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin manifest
 ├── commands/
@@ -91,9 +82,6 @@ aws-amplify-claude-plugin/
 │   └── amplify-workflow/
 │       └── SKILL.md         # Auto-invoked orchestrator
 ├── .mcp.json                # AWS MCP server config
-├── .gitignore
-├── package.json
-├── LICENSE
 └── README.md
 ```
 
