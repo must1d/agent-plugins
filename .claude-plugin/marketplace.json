@@ -31,6 +31,50 @@
         "cdk"
       ],
       "version": "1.0.0"
+    },
+    {
+      "category": "fullstack",
+      "description": "Build fullstack applications with AWS Amplify Gen2 using TypeScript code-first development",
+      "keywords": [
+        "aws",
+        "aws agent skills",
+        "amazon",
+        "amplify",
+        "fullstack",
+        "typescript",
+        "gen2"
+      ],
+      "name": "aws-amplify-app",
+      "source": "./plugins/amplify-app",
+      "tags": [
+        "aws",
+        "amplify",
+        "fullstack",
+        "typescript"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "category": "fullstack",
+      "description": "Build full-stack apps with AWS Amplify Gen 2 using guided workflows and SOPs",
+      "keywords": [
+        "aws",
+        "aws agent skills",
+        "amazon",
+        "amplify",
+        "fullstack",
+        "gen2",
+        "workflows"
+      ],
+      "name": "aws-amplify",
+      "source": "./plugins/amplify-app-furkan",
+      "tags": [
+        "aws",
+        "amplify",
+        "fullstack",
+        "workflows"
+      ],
+      "version": "1.0.0"
     }
   ]
 }

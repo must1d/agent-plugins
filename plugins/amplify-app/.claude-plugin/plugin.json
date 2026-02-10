@@ -1,9 +1,18 @@
 {
-  "name": "aws-amplify-app",
-  "version": "1.0.0",
-  "description": "Build fullstack applications with AWS Amplify Gen2 using TypeScript code-first development",
   "author": {
-    "name": "Mustafë Dobra",
-    "email": "mdobra@amazon.de"
-  }
+    "name": "Amazon Web Services"
+  },
+  "description": "Build fullstack applications with AWS Amplify Gen2 using TypeScript code-first development",
+  "homepage": "https://github.com/awslabs/agent-plugins",
+  "keywords": [
+    "aws",
+    "amplify",
+    "fullstack",
+    "typescript",
+    "gen2"
+  ],
+  "license": "Apache-2.0",
+  "name": "aws-amplify-app",
+  "repository": "https://github.com/awslabs/agent-plugins",
+  "version": "1.0.0"
 }
