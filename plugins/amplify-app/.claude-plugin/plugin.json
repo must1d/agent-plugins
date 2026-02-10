@@ -1,0 +1,9 @@
+{
+  "name": "aws-amplify-app",
+  "version": "1.0.0",
+  "description": "Build fullstack applications with AWS Amplify Gen2 using TypeScript code-first development",
+  "author": {
+    "name": "Mustafë Dobra",
+    "email": "mdobra@amazon.de"
+  }
+}
