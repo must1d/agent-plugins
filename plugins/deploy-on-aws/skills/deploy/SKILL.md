@@ -20,15 +20,6 @@ straightforward services. Don't ask questions with obvious answers.
 4. **Generate** - Write IaC code with [security defaults](references/security.md) applied
 5. **Deploy** - Run security checks, then execute with user confirmation
 
-### Amplify Hosting Delegation
-
-When the recommended deployment target is **Amplify Hosting** (static sites,
-SPAs, or full-stack Amplify Gen 2 apps), delegate the deployment step to the
-`amplify-deploy` skill from the `aws-amplify` plugin. That skill handles
-SOP-driven sandbox and production deployment for Amplify. Continue with
-steps 1-4 of this workflow for analysis, recommendation, and cost estimation,
-then hand off to `amplify-deploy` for the actual deployment.
-
 ## Defaults
 
 See [defaults.md](references/defaults.md) for the complete service selection matrix.
