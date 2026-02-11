@@ -30,9 +30,9 @@ tools/                    @awslabs/agent-plugins-admins
 
 ## Plugins (alphabetically listed)
 
-plugins/aws-amplify      @awslabs/agent-plugins-admins @awslabs/agent-plugins-maintainers  @awslabs/agent-plugins-amplify
+plugins/aws-amplify       @awslabs/agent-plugins-admins @awslabs/agent-plugins-maintainers  @awslabs/agent-plugins-amplify
 plugins/deploy-on-aws     @awslabs/agent-plugins-admins @awslabs/agent-plugins-maintainers  @awslabs/agent-plugins-deploy-on-aws
 
 ## File must end with CODEOWNERS file
 
-.github/CODEOWNERS         @awslabs/agent-plugins-admins
+.github/CODEOWNERS        @awslabs/agent-plugins-admins
