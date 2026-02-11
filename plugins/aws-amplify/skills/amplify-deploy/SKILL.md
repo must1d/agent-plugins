@@ -18,6 +18,26 @@ Use for any Amplify deployment:
 
 ---
 
+## Invocation Context
+
+This skill may be invoked standalone or from the `amplify-workflow` orchestrator.
+
+- **From orchestrator:** The deployment type (sandbox or production) is specified
+  by the caller. Do not re-ask the user. Prerequisites (Node.js, npm, AWS
+  credentials) were already validated — skip the SOP's dependency verification step.
+- **Standalone:** Determine deployment type from the user's request. Validate
+  prerequisites per the SOP.
+
+## Mapping Deployment Targets to SOP Parameters
+
+The SOP uses the parameter name `deployment_type` with values `sandbox` or `cicd`.
+Map user/caller intent as follows:
+
+- "sandbox", "development", "testing" → SOP deployment_type: **sandbox**
+- "production", "prod", "live", "release", "cicd" → SOP deployment_type: **cicd**
+
+---
+
 ## Retrieve and Follow the SOP
 
 The **"amplify-deployment-guide"** SOP must be retrieved **at least once**

@@ -1,29 +1,16 @@
 ---
 name: amplify-workflow
-description: Orchestrates AWS Amplify Gen 2 workflows for building full-stack apps with React, Next.js, Vue, Angular, React Native, Flutter, Swift, or Android. Use when user wants to BUILD, CREATE, or DEPLOY Amplify projects, add authentication, data models, storage, GraphQL APIs, Lambda functions, or deploy to sandbox/production. Do NOT invoke for conceptual questions, comparisons, or troubleshooting unrelated to active development.
+description: Orchestrates AWS Amplify Gen 2 workflows for building full-stack apps with React, Next.js, Vue, Angular, React Native, Flutter, Swift, or Android. Use when user wants to BUILD or CREATE Amplify projects, add authentication, data models, storage, GraphQL APIs, or Lambda functions. Not for conceptual questions, comparisons, or troubleshooting unrelated to active development.
 ---
 
 # Amplify Workflow
 
 Orchestrated workflow for AWS Amplify Gen 2 development.
 
-## When to Use This Workflow
+## Scope
 
-Use for any Amplify Gen 2 work:
-
-- Building a new full-stack application
-- Adding features to an existing backend
-- Connecting frontend to backend
-- Deploying to sandbox or production
-
-The workflow determines which phases apply based on your request.
-
-**DO NOT invoke when:**
-
-- User asks conceptual questions ("What is Amplify?", "How does defineData work?")
-- User asks for comparisons ("Gen 1 vs Gen 2")
-- User is troubleshooting existing issues unrelated to building
-- User just wants information, not action
+This workflow covers building and creating Amplify Gen 2 projects through a phased
+approach. Deployment phases delegate to the `amplify-deploy` skill automatically.
 
 ---
 
@@ -54,11 +41,11 @@ Run these checks before proceeding:
 If the AWS credentials check fails, **STOP** and present this message to the user:
 
 ```
-## ⚠️ AWS Credentials Required
+## AWS Credentials Required
 
 I can't proceed without AWS credentials configured. Please set up your credentials first:
 
-**📚 Setup Guide:** https://docs.amplify.aws/react/start/account-setup/
+**Setup Guide:** https://docs.amplify.aws/react/start/account-setup/
 
 **Quick options:**
 - Run `aws configure` to set up access keys
@@ -108,10 +95,13 @@ Based on the user's request and project state, determine which phases apply:
 Common patterns:
 
 - **New full-stack app:** 1 → 2 → 3 → 4 → 5
+- **Backend only (no frontend):** 1 → 2
 - **Add feature to existing backend:** 1 → 2
 - **Redeploy after changes:** 2 only
 - **Connect existing frontend:** 3 → 4
 - **Deploy to production:** 5 only
+
+**IMPORTANT: Only include phases that the user actually needs.** If the user asks for backend work only (e.g., "add auth", "create a data model", "add storage"), do NOT include Phase 3 (Frontend Integration) or Phase 4 (Local Testing). Frontend phases should only be included when the user explicitly asks for frontend work, a full-stack app, or to connect a frontend to Amplify.
 
 ---
 
@@ -120,29 +110,29 @@ Common patterns:
 Present to the user:
 
 ```
-## 📋 Plan
+## Plan
 
 ### What I understood
 - [Brief summary of what the user wants]
 
-### 🛠️ Features
+### Features
 [list features if applicable]
 
-### ⚛️ Framework
+### Framework
 [framework if known]
 
-### 📦 Phases I'll execute
+### Phases I'll execute
 1. [Phase name] - [one-line description] → SOP: [sop-name]
 2. [Phase name] - [one-line description] → SOP: [sop-name]
 ...
 (Include SOP name for phases 1 and 3. Phases 2 and 5 use the `amplify-deploy` skill. Phase 4 has no SOP.)
 
-Ready to get started? ✨
+Ready to get started?
 ```
 
 **WAIT for user confirmation before proceeding.**
 
-⚠️ **Once the user approves the plan, you MUST stick to it. Do not deviate from the planned phases or SOPs unless the user explicitly asks for changes.**
+**Once the user approves the plan, you MUST stick to it. Do not deviate from the planned phases or SOPs unless the user explicitly asks for changes.**
 
 ---
 
@@ -153,19 +143,19 @@ Execute each applicable phase IN SEQUENCE.
 **When starting a phase, announce it as a header:**
 
 ```
-## ⚙️ Phase 1: Backend (SOP: amplify-backend-implementation)
+## Phase 1: Backend (SOP: amplify-backend-implementation)
 [Next: Phase 2: Sandbox Deployment]
 
-## 🚀 Phase 2: Sandbox Deployment (via amplify-deploy skill)
+## Phase 2: Sandbox Deployment (via amplify-deploy skill)
 [Next: Phase 3: Frontend Integration]
 
-## 🎨 Phase 3: Frontend Integration (SOP: amplify-frontend-integration)
+## Phase 3: Frontend Integration (SOP: amplify-frontend-integration)
 [Next: Phase 4: Local Testing]
 
-## 🧪 Phase 4: Local Testing
+## Phase 4: Local Testing
 [Next: Phase 5: Production Deployment]
 
-## 🌐 Phase 5: Production Deployment (via amplify-deploy skill)
+## Phase 5: Production Deployment (via amplify-deploy skill)
 ```
 
 Omit "[Next: ...]" if it's the last phase in your plan.
@@ -174,14 +164,25 @@ Omit "[Next: ...]" if it's the last phase in your plan.
 
 ### Phase 1: Backend
 
-⚠️ **Do NOT write any code until you have retrieved and read the SOP.**
+**CRITICAL: Do NOT create frontend scaffolding or templates during this phase.** Do not run `create-next-app`, `create-react-app`, `create-vite`, `npm create`, or any frontend project generators. Phase 1 is strictly for Amplify backend resources (the `amplify/` directory). If a frontend project already exists, leave it untouched. If no frontend project exists and the user only asked for backend work, do NOT create one.
+
+Before creating any files, ensure `.gitignore` exists in the project root and includes:
+`node_modules/`, `.env*`, `amplify_outputs.json`, `.amplify/`, `dist/`, `build/`.
+Create or update it if these entries are missing.
+
+**Do NOT write any code until you have retrieved and read the SOP.**
 
 Use the SOP retrieval tool to get **"amplify-backend-implementation"** and follow it completely.
+
+**SOP overrides for orchestrator context:**
+
+- **Skip the SOP's Step 12** ("Determine Next SOP Requirements") — phase sequencing is controlled by this workflow, not the SOP.
+- **Prerequisites were already validated** in Step 1 of this workflow. The SOP's dependency verification (Step 1) can be skipped.
 
 **After completion:**
 
 - Summarize what was created
-- **STOP and ask:** "Phase 1 complete. Ready to proceed to Phase 2: Sandbox Deployment? 🚀"
+- **STOP and ask:** "Phase 1 complete. Ready to proceed to Phase 2: Sandbox Deployment?"
 - **WAIT for user confirmation before proceeding.**
 
 ---
@@ -191,13 +192,13 @@ Use the SOP retrieval tool to get **"amplify-backend-implementation"** and follo
 **Delegate to the `amplify-deploy` skill** for sandbox deployment.
 
 When invoking, indicate that the deployment target is **sandbox (development)**.
-The `amplify-deploy` skill will handle SOP retrieval, prerequisite checks, and
-the complete deployment process.
+Also indicate that prerequisites (Node.js, npm, AWS credentials) were already
+validated in Step 1 of this workflow so the deploy skill can skip re-verification.
 
 **After completion:**
 
 - Confirm deployment succeeded and `amplify_outputs.json` exists
-- **STOP and ask:** "Phase 2 complete. Ready to proceed to Phase 3: Frontend Integration? 🎨"
+- **STOP and ask:** "Phase 2 complete. Ready to proceed to Phase 3: Frontend Integration?"
 - **WAIT for user confirmation before proceeding.**
 
 ---
@@ -206,14 +207,19 @@ the complete deployment process.
 
 **Prerequisite:** `amplify_outputs.json` must exist. If not, run Phase 2 first.
 
-⚠️ **Do NOT write any code until you have retrieved and read the SOP.**
+**Do NOT write any code until you have retrieved and read the SOP.**
 
 Use the SOP retrieval tool to get **"amplify-frontend-integration"** and follow it completely.
+
+**SOP overrides for orchestrator context:**
+
+- **Skip the SOP's Step 12** ("Determine Next SOP Requirements") — phase sequencing is controlled by this workflow, not the SOP.
+- **Prerequisites were already validated** in Step 1 of this workflow.
 
 **After completion:**
 
 - Summarize integration work
-- **STOP and ask:** "Phase 3 complete. Ready to proceed to Phase 4: Local Testing? 🧪"
+- **STOP and ask:** "Phase 3 complete. Ready to proceed to Phase 4: Local Testing?"
 - **WAIT for user confirmation before proceeding.**
 
 ---
@@ -223,7 +229,7 @@ Use the SOP retrieval tool to get **"amplify-frontend-integration"** and follow 
 Present to the user:
 
 ```
-## 🧪 Time to test!
+## Time to test
 
 ### Start your dev server
 [framework-specific command]
@@ -231,12 +237,12 @@ Present to the user:
 ### Try out these features
 [list features implemented]
 
-Let me know how it goes! 🤞
+Let me know how it goes!
 ```
 
 **After user confirms testing is successful:**
 
-- **STOP and ask:** "Phase 4 complete. Ready to proceed to Phase 5: Production Deployment? 🌐"
+- **STOP and ask:** "Phase 4 complete. Ready to proceed to Phase 5: Production Deployment?"
 - **WAIT for user confirmation before proceeding.**
 
 ---
@@ -245,22 +251,22 @@ Let me know how it goes! 🤞
 
 **Delegate to the `amplify-deploy` skill** for production deployment.
 
-When invoking, indicate that the deployment target is **production**.
-The `amplify-deploy` skill will handle SOP retrieval, prerequisite checks, and
-the complete deployment process.
+When invoking, indicate that the deployment target is **production** (maps to
+`cicd` deployment type in the SOP). Also indicate that prerequisites were
+already validated in Step 1 of this workflow.
 
 **After completion:**
 
 ```
-## 🎉 You're live!
+## You're live!
 
-### 🌐 Production URL
+### Production URL
 [url]
 
-### 🔧 Amplify Console
+### Amplify Console
 https://console.aws.amazon.com/amplify/home
 
-Your app is now deployed! Future updates: just push to your repo → auto-deploys ✨
+Your app is now deployed! Future updates: just push to your repo for auto-deploys.
 ```
 
 ---

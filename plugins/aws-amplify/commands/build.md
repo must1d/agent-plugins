@@ -20,17 +20,8 @@ What would you like to build? For example:
 
 ## Execution
 
-This command delegates to the `amplify-workflow` skill which handles:
+Delegate to the `amplify-workflow` skill and follow its complete workflow.
+The skill handles prerequisite validation, phase planning, SOP retrieval,
+and user confirmation gates.
 
-1. **Step 1: Validate Prerequisites** - Node.js, npm, AWS credentials
-2. **Step 2: Handle Missing Credentials** - STOP if AWS credentials not configured
-3. **Step 3: Execute Workflow** - Determine phases, present plan, execute
-
-Follow the complete workflow defined in the skill.
-
-**Key rules:**
-
-- Gen 2 ONLY (`defineAuth`, `defineData`, `defineStorage`, `defineFunction`)
-- NO Gen 1 patterns (`amplify init`, `amplify push`)
-- Always follow SOPs completely
-- STOP if MCP tools fail (do not improvise)
+Gen 2 ONLY — no Gen 1 patterns (`amplify init`, `amplify push`).

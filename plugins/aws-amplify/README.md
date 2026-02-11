@@ -17,7 +17,6 @@ This plugin provides a workflow orchestrator for AWS Amplify Gen 2 development. 
 
 - Node.js 18.x or later
 - AWS credentials configured (`aws configure` or `aws sso login`)
-- Claude Code 2.1.29 or later
 - `uv` package manager for MCP server: https://docs.astral.sh/uv/getting-started/installation/
 
 ## Installation
@@ -124,6 +123,10 @@ Verify it's working:
 Should show `aws-mcp` as active.
 
 **If MCP is unavailable**, the plugin will STOP and ask you to configure it. It will not proceed without MCP.
+
+**Note:** The MCP endpoint (`us-east-1.api.aws`) is the API location for SOP
+retrieval only. It does not affect which region your Amplify resources deploy
+to — deployment region is controlled by your AWS credentials and CLI configuration.
 
 ## License
 
