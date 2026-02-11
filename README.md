@@ -7,10 +7,10 @@ Agent Plugins for AWS equip AI coding agents with the skills to help you archite
 
 ## Plugins
 
-| Plugin                                             | Description                                                                                      | Status    |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------ | --------- |
-| [**aws-amplify**](./plugins/aws-amplify/README.md) | Build full-stack apps with AWS Amplify Gen 2 using guided workflows and SOPs                     | Available |
-| **deploy-on-aws**                                  | Deploy applications to AWS with architecture recommendations, cost estimates, and IaC deployment | Available |
+| Plugin                                 | Description                                                                                      | Status    |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------ | --------- |
+| [**aws-amplify**](plugins/aws-amplify) | Build full-stack apps with AWS Amplify Gen 2 using guided workflows and SOPs                     | Available |
+| **deploy-on-aws**                      | Deploy applications to AWS with architecture recommendations, cost estimates, and IaC deployment | Available |
 
 ## Installation (Claude Code)
 
