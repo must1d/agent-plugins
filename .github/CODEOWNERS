@@ -24,13 +24,13 @@ LICENSE                   @awslabs/agent-plugins-admins
 mise.toml                 @awslabs/agent-plugins-admins
 NOTICE                    @awslabs/agent-plugins-admins
 plugins/                  @awslabs/agent-plugins-admins
-plugins/aws-amplify/      @awslabs/amplify-ai @awslabs/agent-plugins-admins
 README.md                 @awslabs/agent-plugins-admins
 schemas/                  @awslabs/agent-plugins-admins
 tools/                    @awslabs/agent-plugins-admins
 
 ## Plugins (alphabetically listed)
 
+plugins/aws-amplify/      @awslabs/agent-plugins-admins @awslabs/agent-plugins-maintainers  @awslabs/agent-plugins-amplify
 plugins/deploy-on-aws     @awslabs/agent-plugins-admins @awslabs/agent-plugins-maintainers  @awslabs/agent-plugins-deploy-on-aws
 
 ## File must end with CODEOWNERS file
