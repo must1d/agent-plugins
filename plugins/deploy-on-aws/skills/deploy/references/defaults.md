@@ -25,6 +25,11 @@ Less configuration than S3 + CloudFront. Git-based deployments work out of the b
 Use S3 + CloudFront when user needs fine-grained control over caching, edge functions,
 or has existing CloudFront infrastructure.
 
+**Deployment:** When deploying to Amplify Hosting, delegate to the
+`amplify-deploy` skill (from the `aws-amplify` plugin). It provides
+SOP-driven deployment for both sandbox (development) and production
+environments, including prerequisite validation and guided workflows.
+
 Use `amplify_docs` topic in awsknowledge MCP for framework-specific guidance
 (React, Next.js, Vue, Angular, etc.).
 

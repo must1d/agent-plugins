@@ -97,13 +97,13 @@ Once all prerequisites pass, follow the workflow below.
 
 Based on the user's request and project state, determine which phases apply:
 
-| Phase         | Applies when                                             |
-| ------------- | -------------------------------------------------------- |
-| 1: Backend    | User needs to create or modify Amplify backend resources |
-| 2: Sandbox    | Backend code needs deployment for testing                |
-| 3: Frontend   | Frontend needs to connect to Amplify backend             |
-| 4: Testing    | App ready for local verification                         |
-| 5: Production | User wants to deploy to production                       |
+| Phase         | Applies when                                               |
+| ------------- | ---------------------------------------------------------- |
+| 1: Backend    | User needs to create or modify Amplify backend resources   |
+| 2: Sandbox    | Deploy to sandbox for testing (via `amplify-deploy` skill) |
+| 3: Frontend   | Frontend needs to connect to Amplify backend               |
+| 4: Testing    | App ready for local verification                           |
+| 5: Production | Deploy to production (via `amplify-deploy` skill)          |
 
 Common patterns:
 
@@ -135,7 +135,7 @@ Present to the user:
 1. [Phase name] - [one-line description] → SOP: [sop-name]
 2. [Phase name] - [one-line description] → SOP: [sop-name]
 ...
-(Include SOP name for phases 1, 2, 3, and 5. Phase 4 has no SOP.)
+(Include SOP name for phases 1 and 3. Phases 2 and 5 use the `amplify-deploy` skill. Phase 4 has no SOP.)
 
 Ready to get started? ✨
 ```
@@ -156,7 +156,7 @@ Execute each applicable phase IN SEQUENCE.
 ## ⚙️ Phase 1: Backend (SOP: amplify-backend-implementation)
 [Next: Phase 2: Sandbox Deployment]
 
-## 🚀 Phase 2: Sandbox Deployment (SOP: amplify-deployment-guide)
+## 🚀 Phase 2: Sandbox Deployment (via amplify-deploy skill)
 [Next: Phase 3: Frontend Integration]
 
 ## 🎨 Phase 3: Frontend Integration (SOP: amplify-frontend-integration)
@@ -165,7 +165,7 @@ Execute each applicable phase IN SEQUENCE.
 ## 🧪 Phase 4: Local Testing
 [Next: Phase 5: Production Deployment]
 
-## 🌐 Phase 5: Production Deployment (SOP: amplify-deployment-guide)
+## 🌐 Phase 5: Production Deployment (via amplify-deploy skill)
 ```
 
 Omit "[Next: ...]" if it's the last phase in your plan.
@@ -188,9 +188,11 @@ Use the SOP retrieval tool to get **"amplify-backend-implementation"** and follo
 
 ### Phase 2: Sandbox Deployment
 
-⚠️ **Do NOT run any commands until you have retrieved and read the SOP.**
+**Delegate to the `amplify-deploy` skill** for sandbox deployment.
 
-Use the SOP retrieval tool to get **"amplify-deployment-guide"** and follow it for SANDBOX deployment.
+When invoking, indicate that the deployment target is **sandbox (development)**.
+The `amplify-deploy` skill will handle SOP retrieval, prerequisite checks, and
+the complete deployment process.
 
 **After completion:**
 
@@ -241,9 +243,11 @@ Let me know how it goes! 🤞
 
 ### Phase 5: Production Deployment
 
-⚠️ **Do NOT run any commands until you have retrieved and read the SOP.**
+**Delegate to the `amplify-deploy` skill** for production deployment.
 
-Use the SOP retrieval tool to get **"amplify-deployment-guide"** and follow it for PRODUCTION deployment.
+When invoking, indicate that the deployment target is **production**.
+The `amplify-deploy` skill will handle SOP retrieval, prerequisite checks, and
+the complete deployment process.
 
 **After completion:**
 

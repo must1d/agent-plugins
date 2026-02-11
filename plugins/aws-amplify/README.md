@@ -50,19 +50,26 @@ The `amplify-workflow` skill is automatically invoked when you ask Claude to bui
 
 - "Create a new Amplify backend with auth and a todo data model"
 - "Add S3 storage and a Lambda function to my existing Amplify project"
-- "Deploy my Amplify sandbox environment" / "Promote my sandbox to production"
 
-It is **not** used for conceptual questions about Amplify, comparisons with other frameworks, or troubleshooting existing projects—ask those as normal questions without expecting the workflow to start. For build/create/deploy tasks, just describe what you want to change or deploy in natural language.
+The `amplify-deploy` skill is the mandatory entry point for all Amplify deployments (sandbox and production). It is automatically invoked for deployment requests, for example:
+
+- "Deploy my Amplify sandbox environment"
+- "Promote my sandbox to production"
+- "Release my Amplify app"
+
+When `amplify-workflow` reaches its deployment phases (Phase 2: Sandbox, Phase 5: Production), it delegates to `amplify-deploy` automatically.
+
+These skills are **not** used for conceptual questions about Amplify, comparisons with other frameworks, or troubleshooting existing projects—ask those as normal questions without expecting the workflow to start. For build/create/deploy tasks, just describe what you want in natural language.
 
 ## Workflow Phases
 
-| Phase      | Description                     | SOP                              |
-| ---------- | ------------------------------- | -------------------------------- |
-| Backend    | Create/modify Amplify resources | `amplify-backend-implementation` |
-| Sandbox    | Deploy to sandbox for testing   | `amplify-deployment-guide`       |
-| Frontend   | Connect frontend to backend     | `amplify-frontend-integration`   |
-| Testing    | Local verification              | Manual                           |
-| Production | Deploy to production            | `amplify-deployment-guide`       |
+| Phase      | Description                     | Handled By                            |
+| ---------- | ------------------------------- | ------------------------------------- |
+| Backend    | Create/modify Amplify resources | SOP: `amplify-backend-implementation` |
+| Sandbox    | Deploy to sandbox for testing   | `amplify-deploy` skill                |
+| Frontend   | Connect frontend to backend     | SOP: `amplify-frontend-integration`   |
+| Testing    | Local verification              | Manual                                |
+| Production | Deploy to production            | `amplify-deploy` skill                |
 
 **Common Patterns:**
 
@@ -81,6 +88,8 @@ aws-amplify/
 ├── commands/
 │   └── build.md             # /aws-amplify:build command
 ├── skills/
+│   ├── amplify-deploy/
+│   │   └── SKILL.md         # Deployment skill (sandbox & production)
 │   └── amplify-workflow/
 │       └── SKILL.md         # Auto-invoked orchestrator
 ├── .mcp.json                # AWS MCP server config
