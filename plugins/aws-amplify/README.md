@@ -46,13 +46,13 @@ claude --plugin-dir ./agent-plugins/plugins/aws-amplify
 
 ### Auto-Invoked Skill
 
-The `amplify-workflow` skill is automatically invoked when you mention Amplify-related topics:
+The `amplify-workflow` skill is automatically invoked when you ask Claude to build, modify, or deploy an Amplify Gen 2 backend or full-stack app, for example:
 
-- "Amplify", "backend", "sandbox", "deploy"
-- Adding auth, data, storage, functions
-- Building full-stack apps
+- "Create a new Amplify backend with auth and a todo data model"
+- "Add S3 storage and a Lambda function to my existing Amplify project"
+- "Deploy my Amplify sandbox environment" / "Promote my sandbox to production"
 
-Just describe what you want naturally.
+It is **not** used for conceptual questions about Amplify, comparisons with other frameworks, or troubleshooting existing projects—ask those as normal questions without expecting the workflow to start. For build/create/deploy tasks, just describe what you want to change or deploy in natural language.
 
 ## Workflow Phases
 
