@@ -12,19 +12,30 @@ Agent Plugins for AWS equip AI coding agents with the skills to help you archite
 | [**aws-amplify**](plugins/aws-amplify)     | Build full-stack apps with AWS Amplify Gen 2 using guided workflows and SOPs                     | Available |
 | [**deploy-on-aws**](plugins/deploy-on-aws) | Deploy applications to AWS with architecture recommendations, cost estimates, and IaC deployment | Available |
 
-## Installation (Claude Code)
+## Installation
 
-### Add the marketplace
+### Claude Code
+
+#### Add the marketplace
 
 ```bash
 /plugin marketplace add awslabs/agent-plugins
 ```
 
-### Install a plugin
+#### Install a plugin
 
 ```bash
-/plugin install deploy-on-aws@awslabs-agent-plugins
+/plugin install deploy-on-aws@agent-plugins-for-aws
 ```
+
+### Cursor
+
+Use the official [Cursor marketplace](https://cursor.com/marketplace) to install the plugins from this repository. For additional information, please refer to the [documentation](https://cursor.com/docs/plugins).
+
+- Open Cursor Settings
+- Navigate to `Plugins`, and in the search bar type `aws`
+- Select the plugin you want to install, and Click `add to cursor`, then select the scope
+- Now the plugin should appear under `Plugins -> installed`
 
 ## deploy-on-aws
 
@@ -54,22 +65,26 @@ Equips agents with the skills to accelerate AWS deployment - recommending AWS ar
 
 ## Requirements
 
-- Claude Code >=2.1.29
+- Claude Code >=2.1.29 or Cursor released >= Feb 17 2026
 - AWS CLI configured with appropriate credentials
 
 ## Troubleshooting
 
-Having issues with plugin installation or usage? See our [troubleshooting guide](./TROUBLESHOOTING.md) for common solutions.
-
-## Developer guide
-
-If you want to add a new plugin to the library, check out our [development guide](./DEVELOPMENT_GUIDE.md).
+Having issues with plugin installation or usage? See our [troubleshooting guide](./docs/TROUBLESHOOTING.md) for common solutions.
 
 ## Contributing
 
 Big shout out to our awesome contributors! Thank you for making this project better!
 
 Contributions of all kinds are welcome! Check out our [contributor guide](./CONTRIBUTING.md) for more information.
+
+## Developer guide
+
+If you want to add a new plugin to the library, check out our [design guidelines](./docs/DESIGN_GUIDELINES.md) and [development guide](./docs/DEVELOPMENT_GUIDE.md).
+
+## Maintainers
+
+Repository reviewers, maintainers, and admins can find PR review workflows, merge rules, and CI/CD documentation in the [maintainers guide](./docs/MAINTAINERS_GUIDE.md).
 
 ## License
 
